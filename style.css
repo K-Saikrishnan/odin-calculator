@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", sans-serif;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+
+header {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 4rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  height: 500px;
+  width: 400px;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+#display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 7rem;
+  width: 95%;
+  padding: 0 0.7rem 0.25rem;
+  background-color: white;
+}
+#display #previous {
+  min-height: 2rem;
+  font-size: 1.25rem;
+}
+#display #current {
+  min-height: 2.5rem;
+  margin-top: 1rem;
+  font-size: 2.5rem;
+}
+
+#controls {
+  margin-top: 2rem;
+  width: 95%;
+  color: black;
+  display: grid;
+  grid-template-areas: "clear         clear   delete    divide" "seven         eight   nine      multiply" "four          five    six       subtract" "one           two     three     add" "zero-zero     zero    decimal   equals";
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+#controls #one {
+  grid-area: one;
+}
+#controls #two {
+  grid-area: two;
+}
+#controls #three {
+  grid-area: three;
+}
+#controls #four {
+  grid-area: four;
+}
+#controls #five {
+  grid-area: five;
+}
+#controls #six {
+  grid-area: six;
+}
+#controls #seven {
+  grid-area: seven;
+}
+#controls #eight {
+  grid-area: eight;
+}
+#controls #nine {
+  grid-area: nine;
+}
+#controls #zero {
+  grid-area: zero;
+}
+#controls #zero-zero {
+  grid-area: zero-zero;
+}
+#controls #add {
+  grid-area: add;
+  text-transform: uppercase;
+  border: none;
+  background-color: lightgreen;
+  color: black;
+}
+#controls #subtract {
+  grid-area: subtract;
+  text-transform: uppercase;
+  border: none;
+  background-color: lightgreen;
+  color: black;
+}
+#controls #multiply {
+  grid-area: multiply;
+  text-transform: uppercase;
+  border: none;
+  background-color: lightgreen;
+  color: black;
+}
+#controls #divide {
+  grid-area: divide;
+  text-transform: uppercase;
+  border: none;
+  background-color: lightgreen;
+  color: black;
+}
+#controls #equals {
+  grid-area: equals;
+  text-transform: uppercase;
+  border: none;
+  background-color: orange;
+  color: black;
+}
+#controls #clear {
+  grid-area: clear;
+  text-transform: uppercase;
+  border: none;
+  background-color: orangered;
+  color: black;
+}
+#controls #delete {
+  grid-area: delete;
+  text-transform: uppercase;
+  border: none;
+  background-color: orangered;
+  color: black;
+}
+#controls button {
+  display: inline;
+  vertical-align: middle;
+  padding: 0.75rem;
+  background-color: #ffff47;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+#controls button:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: beige;
+}
+footer #footer-heart {
+  color: red;
+  font-size: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}

@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+@mixin flex($direction: row, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin operation($bg: lightgreen, $color: black) {
+  text-transform: uppercase;
+  border: none;
+  background-color: $bg;
+  color: $color;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Libre Baskerville', sans-serif;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+body {
+  @include flex(column, space-between, center);
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+
+header {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 4rem;
+  text-align: center;
+}
+
+main {
+  @include flex(column, center, center);
+  background-color: #222;
+  height: 500px;
+  width: 400px;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+#display {
+  @include flex(column, center, flex-end);
+  height: 7rem;
+  width: 95%;
+  padding: 0 0.7rem 0.25rem;
+  background-color: white;
+
+  #previous {
+    min-height: 2rem;
+    font-size: 1.25rem;
+  }
+  #current {
+    min-height: 2.5rem;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+  }
+}
+
+#controls {
+  margin-top: 2rem;
+  width: 95%;
+  color: black;
+  display: grid;
+  grid-template-areas:
+    'clear         clear   delete    divide'
+    'seven         eight   nine      multiply'
+    'four          five    six       subtract'
+    'one           two     three     add'
+    'zero-zero     zero    decimal   equals';
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  #one {
+    grid-area: one;
+  }
+  #two {
+    grid-area: two;
+  }
+  #three {
+    grid-area: three;
+  }
+  #four {
+    grid-area: four;
+  }
+  #five {
+    grid-area: five;
+  }
+  #six {
+    grid-area: six;
+  }
+  #seven {
+    grid-area: seven;
+  }
+  #eight {
+    grid-area: eight;
+  }
+  #nine {
+    grid-area: nine;
+  }
+  #zero {
+    grid-area: zero;
+  }
+  #zero-zero {
+    grid-area: zero-zero;
+  }
+  #add {
+    grid-area: add;
+    @include operation();
+  }
+  #subtract {
+    grid-area: subtract;
+    @include operation();
+  }
+  #multiply {
+    grid-area: multiply;
+    @include operation();
+  }
+  #divide {
+    grid-area: divide;
+    @include operation();
+  }
+
+  #equals {
+    grid-area: equals;
+    @include operation(orange);
+  }
+  #clear {
+    grid-area: clear;
+    @include operation(orangered);
+  }
+  #delete {
+    grid-area: delete;
+    @include operation(orangered);
+  }
+
+  button {
+    display: inline;
+    vertical-align: middle;
+    padding: 0.75rem;
+    background-color: #ffff47;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(90%);
+    }
+  }
+}
+
+footer {
+  @include flex(row, center, center);
+  height: 50px;
+  width: 100%;
+  background-color: beige;
+
+  #footer-heart {
+    color: red;
+    font-size: 1.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
