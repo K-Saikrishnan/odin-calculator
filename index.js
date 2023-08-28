@@ -24,6 +24,7 @@ const numberBtns = document.querySelectorAll('.number');
 const operatorBtns = document.querySelectorAll('.operator');
 
 window.addEventListener('load', () => clear());
+window.addEventListener('keydown', (e) => handleKeyboardInput(e));
 clearBtn.addEventListener('click', () => clear());
 numberBtns.forEach((btn) => btn.addEventListener('click', () => appendNumber(btn.innerText)));
 operatorBtns.forEach((btn) => btn.addEventListener('click', () => setOperator(btn.innerText)));
@@ -36,6 +37,21 @@ function clear() {
   secondOperand = operator = '';
   setCurrent();
   setPrevious();
+}
+
+function handleKeyboardInput(e) {
+  const { key } = e;
+  if (!isNaN(key)) appendNumber(key);
+  else if (key === 'Escape') clear();
+  else if (key === 'Backspace' || key === 'Delete') {
+    e.preventDefault();
+    removeDigit();
+  } else if (key === 'Enter' || key === '=') calculateResult();
+  else if (key === '.') appendDecimalPoint();
+  else if (Object.keys(operations).includes(key)) {
+    e.preventDefault();
+    setOperator(key);
+  }
 }
 
 function appendNumber(number) {
