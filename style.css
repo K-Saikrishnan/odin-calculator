@@ -15,12 +15,14 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   min-height: 100vh;
-  background-color: #f6f6f6;
+  background-color: #444;
 }
 
 header {
   margin-top: 1rem;
+  color: white;
   font-weight: bold;
   font-size: 4rem;
   text-align: center;
@@ -31,6 +33,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0;
   background-color: #222;
   height: 500px;
   width: 400px;
@@ -43,6 +46,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  gap: 0;
   height: 7rem;
   width: 95%;
   padding: 0 0.7rem 0.25rem;
@@ -168,6 +172,7 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0;
   height: 50px;
   width: 100%;
   background-color: beige;
