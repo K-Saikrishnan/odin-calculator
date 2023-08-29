@@ -190,6 +190,12 @@ footer #footer-heart {
     width: 300px;
     zoom: 75%;
   }
+  #display #previous {
+    font-size: 1rem;
+  }
+  #display #current {
+    font-size: 1.75rem;
+  }
   #controls {
     column-gap: unset;
     justify-content: space-between;
