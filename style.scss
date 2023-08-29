@@ -173,3 +173,20 @@ footer {
     margin-bottom: auto;
   }
 }
+
+@media screen and (max-width: 600px) {
+  main {
+    height: fit-content;
+    width: 300px;
+    zoom: 75%;
+  }
+
+  #controls {
+    column-gap: unset;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
