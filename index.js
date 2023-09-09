@@ -55,6 +55,8 @@ function handleKeyboardInput(e) {
 }
 
 function appendNumber(number) {
+  if (isCurrentValueSpecialNumber()) return;
+
   if (!operator) {
     if (firstOperand === '0') firstOperand = '';
     firstOperand += number;
@@ -68,7 +70,7 @@ function appendNumber(number) {
 
 function setOperator(op) {
   if (getCurrentValue() === '') setCurrent('0');
-  if (!firstOperand) return;
+  if (!firstOperand || isCurrentValueSpecialNumber()) return;
   if (operator && secondOperand) calculateResult();
   operator = op;
   setCurrent('');
@@ -79,7 +81,7 @@ function appendDecimalPoint() {
   const currentValue = getCurrentValue(),
     DECIMAL = '.';
 
-  if (currentValue.includes(DECIMAL)) return;
+  if (currentValue.includes(DECIMAL) || isCurrentValueSpecialNumber()) return;
   else if (!currentValue) {
     setCurrent('0.');
     return;
@@ -96,6 +98,7 @@ function appendDecimalPoint() {
 function removeDigit() {
   const currentValue = getCurrentValue();
   if (!currentValue) return;
+  if (isCurrentValueSpecialNumber()) clear();
 
   if (!operator) {
     firstOperand = firstOperand.slice(0, -1);
@@ -129,6 +132,10 @@ function setCurrent(value = '') {
   current.innerText = formatValue(value);
 }
 
+function isCurrentValueSpecialNumber() {
+  return Object.values(specialNumbers).includes(getCurrentValue());
+}
+
 function setPrevious(value = '', operator = '') {
   previous.innerText = `${formatValue(value)} ${operator}`;
 }
@@ -136,7 +143,7 @@ function setPrevious(value = '', operator = '') {
 function formatValue(value) {
   if (specialNumbers[value]) return specialNumbers[value];
 
-  // Limit the number of digits inside the display
-  if (value.length > 13) value = Number(value).toExponential(5);
+  // Convert to exponential notation if number is too long
+  if (value.length > 10) value = Number(value).toExponential(5);
   return value;
 }
