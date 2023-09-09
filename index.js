@@ -24,8 +24,8 @@ const numberBtns = document.querySelectorAll('.number');
 const operatorBtns = document.querySelectorAll('.operator');
 
 window.addEventListener('load', () => clear());
-window.addEventListener('keydown', (e) => handleKeyboardInput(e));
 clearBtn.addEventListener('click', () => clear());
+window.addEventListener('keydown', (e) => handleKeyboardInput(e));
 numberBtns.forEach((btn) => btn.addEventListener('click', () => appendNumber(btn.innerText)));
 operatorBtns.forEach((btn) => btn.addEventListener('click', () => setOperator(btn.innerText)));
 decimalBtn.addEventListener('click', () => appendDecimalPoint());
@@ -41,6 +41,7 @@ function clear() {
 
 function handleKeyboardInput(e) {
   const { key } = e;
+
   if (!isNaN(key)) appendNumber(key);
   else if (key === 'Escape') clear();
   else if (key === 'Backspace' || key === 'Delete') {
@@ -69,8 +70,9 @@ function appendNumber(number) {
 }
 
 function setOperator(op) {
-  if (getCurrentValue() === '') setCurrent('0');
   if (!firstOperand || isCurrentValueSpecialNumber()) return;
+
+  if (getCurrentValue() === '') setCurrent('0');
   if (operator && secondOperand) calculateResult();
   operator = op;
   setCurrent('');
@@ -86,6 +88,7 @@ function appendDecimalPoint() {
     setCurrent('0.');
     return;
   }
+
   if (!operator) {
     firstOperand += DECIMAL;
     setCurrent(firstOperand);
@@ -96,8 +99,7 @@ function appendDecimalPoint() {
 }
 
 function removeDigit() {
-  const currentValue = getCurrentValue();
-  if (!currentValue) return;
+  if (!getCurrentValue()) return;
   if (isCurrentValueSpecialNumber()) clear();
 
   if (!operator) {
@@ -111,6 +113,7 @@ function removeDigit() {
 
 function calculateResult() {
   if (!operator || !firstOperand || !secondOperand) return;
+
   const result = calculate(operator, firstOperand, secondOperand);
   firstOperand = result;
   secondOperand = operator = '';

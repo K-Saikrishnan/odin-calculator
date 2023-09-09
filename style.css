@@ -57,6 +57,11 @@ main {
   font-size: 1.25rem;
 }
 #display #current {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 0;
   min-height: 2.5rem;
   margin-top: 1rem;
   font-size: 2.5rem;
@@ -107,49 +112,42 @@ main {
 #controls #add {
   grid-area: add;
   text-transform: uppercase;
-  border: none;
   background-color: lightgreen;
   color: black;
 }
 #controls #subtract {
   grid-area: subtract;
   text-transform: uppercase;
-  border: none;
   background-color: lightgreen;
   color: black;
 }
 #controls #multiply {
   grid-area: multiply;
   text-transform: uppercase;
-  border: none;
   background-color: lightgreen;
   color: black;
 }
 #controls #divide {
   grid-area: divide;
   text-transform: uppercase;
-  border: none;
   background-color: lightgreen;
   color: black;
 }
 #controls #equals {
   grid-area: equals;
   text-transform: uppercase;
-  border: none;
   background-color: orange;
   color: black;
 }
 #controls #clear {
   grid-area: clear;
   text-transform: uppercase;
-  border: none;
   background-color: orangered;
   color: black;
 }
 #controls #delete {
   grid-area: delete;
   text-transform: uppercase;
-  border: none;
   background-color: orangered;
   color: black;
 }

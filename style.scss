@@ -10,7 +10,6 @@
 
 @mixin operation($bg: lightgreen, $color: black) {
   text-transform: uppercase;
-  border: none;
   background-color: $bg;
   color: $color;
 }
